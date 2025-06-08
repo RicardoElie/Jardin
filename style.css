@@ -1,0 +1,117 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #0b0f1a, #000);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estrellas */
+.particles .dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.5;
+  border-radius: 50%;
+  animation: blink 2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 0.2; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Animación de crecimiento general */
+.flower {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%) scaleY(0);
+  animation: grow 3s ease-out forwards;
+}
+.flower:nth-child(2) { animation-delay: 0.5s; }
+.flower:nth-child(3) { animation-delay: 1s; }
+.flower:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes grow {
+  0% { transform: translateX(-50%) scaleY(0); opacity: 0; }
+  100% { transform: translateX(-50%) scaleY(1); opacity: 1; }
+}
+
+/* Tallo */
+.stem {
+  width: 6px;
+  height: 160px;
+  background: linear-gradient(to top, #336633, #66cc66);
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Hojas base */
+.leaves {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 120px;
+  height: 60px;
+  background: radial-gradient(circle, #1a6c3e, #09311a);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  filter: blur(1px);
+  opacity: 0.9;
+}
+
+/* Floración */
+.petals {
+  position: absolute;
+  bottom: 160px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  animation: bloom 2s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes bloom {
+  0% { transform: translateX(-50%) scale(0); opacity: 0; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.flower:nth-child(2) .petals { animation-delay: 1s; }
+.flower:nth-child(3) .petals { animation-delay: 1.5s; }
+.flower:nth-child(4) .petals { animation-delay: 2s; }
+
+/* 🌸 Pétalos mejorados */
+.petal {
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(circle, #ff69b4 30%, #c2185b 100%);
+  position: absolute;
+  border-radius: 50% 50% 40% 40%;
+  opacity: 0.95;
+  box-shadow: 0 0 5px #ff69b4;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-30px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-30px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-30px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-30px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-30px); }
+
+/* Centro de la flor */
+.center {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, gold 50%, orange 100%);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 158px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px gold;
+  z-index: 1;
+}
